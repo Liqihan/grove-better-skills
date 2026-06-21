@@ -1,7 +1,7 @@
 {
   "name": "skills",
   "version": "0.1.0",
-  "description": "Install bundled Codex/Cloud-compatible skills with npx.",
+  "description": "Install Codex/Cloud-compatible skills from this repo or another GitHub repository.",
   "license": "MIT",
   "bin": {
     "skills": "bin/skills.js"

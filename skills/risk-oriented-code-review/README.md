@@ -9,10 +9,10 @@
 
 ## 安装
 
-使用 npx 安装当前包内置 skill：
+使用 npx 从 GitHub 安装当前仓库中的 skill：
 
 ```bash
-npx skills add risk-oriented-code-review
+npx skills@latest add grove94/grove-better-skills risk-oriented-code-review
 ```
 
 从仓库根目录执行：
@@ -36,7 +36,7 @@ SKILLS_DIR=/path/to/skills ./install.sh risk-oriented-code-review
 覆盖已安装版本：
 
 ```bash
-npx skills add risk-oriented-code-review --force
+npx skills@latest add grove94/grove-better-skills risk-oriented-code-review --force
 ```
 
 或在本地仓库中执行：
@@ -45,7 +45,7 @@ npx skills add risk-oriented-code-review --force
 ./install.sh risk-oriented-code-review --force
 ```
 
-在 Cloud 或远程环境中，优先使用 `npx skills add risk-oriented-code-review` 安装当前包内置 skill。安装后，如果环境没有自动发现新 skill，请重启当前 Codex / Cloud session。
+在 Cloud 或远程环境中，优先使用 `npx skills@latest add grove94/grove-better-skills risk-oriented-code-review` 从 GitHub 安装当前仓库中的 skill。安装后，如果环境没有自动发现新 skill，请重启当前 Codex / Cloud session。
 
 ## 适用场景
 

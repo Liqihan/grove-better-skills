@@ -10,15 +10,16 @@ function usage() {
   console.log(`Install Codex/Cloud-compatible skills from a repository.
 
 Usage:
+  skills add <owner/repo|git-url|local-path> [skill-name] [--force] [--dir <skills-dir>]
   skills add [skill-name] [--force] [--dir <skills-dir>]
   skills add --repo <owner/repo|git-url|local-path> [skill-name] [--force] [--dir <skills-dir>]
 
 Examples:
-  npx skills add
-  npx skills add risk-oriented-code-review
-  npx skills add --force
-  npx skills add --dir ~/.codex/skills
-  npx skills add --repo jimliu/baoyu-skills risk-oriented-code-review
+  npx skills@latest add grove94/grove-better-skills
+  npx skills@latest add grove94/grove-better-skills risk-oriented-code-review
+  npx skills@latest add risk-oriented-code-review
+  npx skills@latest add --force
+  npx skills@latest add --dir ~/.codex/skills
 
 Destination priority:
   1. --dir <skills-dir>
@@ -32,9 +33,17 @@ function fail(message) {
   process.exit(1);
 }
 
+function looksLikeRepo(value) {
+  if (!value) return false;
+  if (fs.existsSync(expandHome(value))) return true;
+  if (/^(https?:|git@|ssh:|file:)/.test(value)) return true;
+  return /^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(value);
+}
+
 function parseArgs(argv) {
   const args = [...argv];
   const options = { command: args.shift(), repo: undefined, skillName: undefined, force: false, dir: undefined };
+  const positional = [];
 
   if (!options.command || options.command === '-h' || options.command === '--help') {
     usage();
@@ -76,11 +85,24 @@ function parseArgs(argv) {
     if (arg.startsWith('--')) {
       fail(`unknown option: ${arg}`);
     }
-    if (!options.skillName) {
-      options.skillName = arg;
-      continue;
+    positional.push(arg);
+  }
+
+  if (positional.length > 2) fail('too many positional arguments');
+
+  if (options.repo) {
+    if (positional.length > 1) fail('only one optional skill name can be provided when --repo is used');
+    options.skillName = positional[0];
+  } else if (positional.length === 1) {
+    if (looksLikeRepo(positional[0])) {
+      options.repo = positional[0];
+    } else {
+      options.skillName = positional[0];
     }
-    fail('only one optional skill name can be provided');
+  } else if (positional.length === 2) {
+    if (!looksLikeRepo(positional[0])) fail(`first argument must be a repository when two positional arguments are provided: ${positional[0]}`);
+    options.repo = positional[0];
+    options.skillName = positional[1];
   }
 
   if (options.skillName && (options.skillName.includes('/') || options.skillName.includes('..'))) {

@@ -8,41 +8,41 @@
 
 这个仓库提供了两种一键安装方式：
 
-1. `npx skills add`：适合 Cloud、Codex 或任意 Node.js 环境，直接安装当前 npm 包内置的所有 skills。
+1. `npx skills@latest add grove94/grove-better-skills`：适合 Cloud、Codex 或任意 Node.js 环境，直接从 GitHub 安装当前仓库里的 skills。
 2. [`install.sh`](install.sh)：适合已经 clone 当前仓库后的本地安装，或 shell-only 环境。
 
-### 使用 npx 安装当前包内置 skills
+### 使用 npx 从 GitHub 安装当前仓库 skills
 
-安装当前包里的所有可安装 skills：
+安装当前仓库里的所有可安装 skills：
 
 ```bash
-npx skills add
+npx skills@latest add grove94/grove-better-skills
 ```
 
 只安装某一个 skill：
 
 ```bash
-npx skills add risk-oriented-code-review
+npx skills@latest add grove94/grove-better-skills risk-oriented-code-review
 ```
 
 覆盖已安装版本：
 
 ```bash
-npx skills add --force
+npx skills@latest add grove94/grove-better-skills --force
 ```
 
 安装到自定义目录：
 
 ```bash
-npx skills add --dir /path/to/skills
+npx skills@latest add grove94/grove-better-skills --dir /path/to/skills
 ```
 
-`skills add` 默认安装当前 npm 包里随包发布的 skills，并优先读取包内 `skills.json`；如果没有该文件，则扫描 `skills/*/SKILL.md`。默认安装位置与 `install.sh` 一致：优先使用 `SKILLS_DIR`，其次是 `CODEX_HOME/skills`，最后是 `~/.codex/skills`。
+`skills add` 会把 `owner/repo` 形式的参数解析为 GitHub 仓库，克隆后优先读取仓库根目录的 `skills.json`；如果没有该文件，则扫描 `skills/*/SKILL.md`。默认安装位置与 `install.sh` 一致：优先使用 `SKILLS_DIR`，其次是 `CODEX_HOME/skills`，最后是 `~/.codex/skills`。
 
-如果以后需要调试其他仓库，也可以显式传入 `--repo`：
+如果已经把当前 package 安装到本地，也可以省略仓库参数来安装包内置 skills：
 
 ```bash
-npx skills add --repo jimliu/baoyu-skills risk-oriented-code-review
+npx skills@latest add risk-oriented-code-review
 ```
 
 ### 使用 install.sh 从本地仓库安装
@@ -110,7 +110,7 @@ rm -rf ~/.codex/skills/risk-oriented-code-review
 一键安装：
 
 ```bash
-npx skills add risk-oriented-code-review
+npx skills@latest add grove94/grove-better-skills risk-oriented-code-review
 ```
 
 本地安装：
@@ -180,6 +180,6 @@ skills/
 ## 当前状态
 
 - 已添加：`risk-oriented-code-review`
-- 已支持：通过 `npx skills add` 一键安装当前包内置 skill 到 Cloud / Codex 兼容目录
+- 已支持：通过 `npx skills@latest add grove94/grove-better-skills` 从 GitHub 一键安装当前仓库 skill 到 Cloud / Codex 兼容目录
 - 已支持：通过 `install.sh` 从本地仓库一键安装指定 skill
 - 后续可以继续沉淀更多日常高频工作流，例如 PR 评论处理、CI 失败排查、产品方案 review、技术方案 review 等。
