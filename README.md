@@ -196,5 +196,6 @@ curl -fsSL <raw-install-url> | SKILLS_REPO_URL=<git-repo-url> bash -s -- skill-r
 - 已添加 slash command：`/recommend`
 - 已建立第三方 Skills 记录目录：`third-party-skills/`
 - 已建立第三方 Skills 机器可读索引：`third-party-skills.json`
+- 已记录第三方 Skill：`native-feel-cross-platform-desktop`
 - 已支持通过 `npx skills@latest add grove94/grove-better-skills` 从 GitHub 一键安装自研 Skills
 - 已支持通过 `install.sh` 从本地仓库一键安装指定自研 Skill

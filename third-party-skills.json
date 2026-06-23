@@ -1,4 +1,28 @@
 {
   "schemaVersion": 1,
-  "skills": []
+  "skills": [
+    {
+      "name": "native-feel-cross-platform-desktop",
+      "description": "Architecture and audit guidance for cross-platform desktop apps that must feel native across macOS and Windows, covering native shell boundaries, system WebView usage, typed IPC, memory trade-offs, and native-feel conventions.",
+      "repository": "https://github.com/yetone/native-feel-skill",
+      "record": "third-party-skills/native-feel-cross-platform-desktop.md",
+      "entry": "SKILL.md",
+      "tags": [
+        "desktop",
+        "cross-platform",
+        "native-feel",
+        "webview",
+        "architecture",
+        "raycast"
+      ],
+      "recommendedFor": [
+        "Designing or rewriting cross-platform desktop apps that need a native feel",
+        "Evaluating Electron, Tauri, WebView, or native-shell architecture trade-offs",
+        "Auditing WebView-based desktop UI polish, launch feel, memory, IPC, and platform conventions"
+      ],
+      "relationshipToFirstPartySkills": "Complements skill-recommender as a third-party candidate for desktop architecture and native-feel UI decisions; it is not a replacement for risk-oriented-code-review.",
+      "installable": true,
+      "installCommand": "npx skills add yetone/native-feel-skill -g"
+    }
+  ]
 }
