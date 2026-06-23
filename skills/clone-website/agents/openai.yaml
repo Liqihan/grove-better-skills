@@ -1,0 +1,4 @@
+interface:
+  display_name: "Clone Website"
+  short_description: "Reverse-engineer websites into Next.js clones"
+  default_prompt: "Use $clone-website to rebuild https://example.com as a pixel-perfect Next.js clone."

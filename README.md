@@ -12,6 +12,7 @@
 ```text
 .
 ├── skills/                         # 自研、可安装的 Skills
+│   ├── clone-website/
 │   ├── risk-oriented-code-review/
 │   └── skill-recommender/
 ├── third-party-skills/              # 第三方 Skills 的记录、评测和安装说明
@@ -56,6 +57,7 @@ npx skills@latest add grove94/grove-better-skills
 只安装某一个 Skill：
 
 ```bash
+npx skills@latest add grove94/grove-better-skills clone-website
 npx skills@latest add grove94/grove-better-skills risk-oriented-code-review
 npx skills@latest add grove94/grove-better-skills skill-recommender
 ```
@@ -82,6 +84,7 @@ npx skills@latest add grove94/grove-better-skills --dir /path/to/skills
 ### 使用 install.sh 从本地仓库安装
 
 ```bash
+./install.sh clone-website
 ./install.sh risk-oriented-code-review
 ./install.sh skill-recommender
 ```
@@ -106,7 +109,26 @@ curl -fsSL <raw-install-url> | SKILLS_REPO_URL=<git-repo-url> bash -s -- skill-r
 
 ## 自研 Skills
 
-### 1. Risk-Oriented Code Review
+### 1. Clone Website
+
+路径：[`skills/clone-website`](skills/clone-website)
+
+用途：反向分析一个或多个目标网站，抽取截图、真实资源、computed CSS、内容、交互行为和响应式规则，然后按组件规格重建成 Next.js / App Router 页面。
+
+适合场景：
+
+- 想把某个网页复刻成 pixel-perfect 版本
+- 需要先做可审计的网站研究材料，再实现页面
+- 需要下载真实图片、视频、SVG、favicon 和文案
+- 需要检查 scroll / click / hover / responsive 等交互行为
+
+推荐输入：
+
+```text
+Use $clone-website to rebuild https://example.com as a pixel-perfect Next.js clone.
+```
+
+### 2. Risk-Oriented Code Review
 
 路径：[`skills/risk-oriented-code-review`](skills/risk-oriented-code-review)
 
@@ -127,7 +149,7 @@ curl -fsSL <raw-install-url> | SKILLS_REPO_URL=<git-repo-url> bash -s -- skill-r
 最后按严重程度排序。
 ```
 
-### 2. Skill Recommender
+### 3. Skill Recommender
 
 路径：[`skills/skill-recommender`](skills/skill-recommender)
 
@@ -197,6 +219,7 @@ curl -fsSL <raw-install-url> | SKILLS_REPO_URL=<git-repo-url> bash -s -- skill-r
 
 ## 当前状态
 
+- 已添加自研 Skill：`clone-website`
 - 已添加自研 Skill：`risk-oriented-code-review`
 - 已添加自研 Skill：`skill-recommender`
 - 已添加 slash command：`/recommend`

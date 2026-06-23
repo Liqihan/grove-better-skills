@@ -2,6 +2,21 @@
   "schemaVersion": 1,
   "skills": [
     {
+      "name": "clone-website",
+      "description": "Reverse-engineer and clone one or more websites into a Next.js/App Router frontend by extracting screenshots, assets, computed CSS, content, interactions, responsive behavior, and component specs before building.",
+      "path": "skills/clone-website",
+      "entry": "skills/clone-website/SKILL.md",
+      "version": "0.1.0",
+      "tags": [
+        "website-clone",
+        "reverse-engineering",
+        "frontend",
+        "nextjs",
+        "codex"
+      ],
+      "installable": true
+    },
+    {
       "name": "risk-oriented-code-review",
       "description": "Second-layer code review focused on hidden side effects, compatibility breaks, boundary cases, performance, security, tests, and maintenance risk.",
       "path": "skills/risk-oriented-code-review",
