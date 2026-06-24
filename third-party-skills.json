@@ -23,6 +23,29 @@
       "relationshipToFirstPartySkills": "Complements skill-recommender as a third-party candidate for desktop architecture and native-feel UI decisions; it is not a replacement for risk-oriented-code-review.",
       "installable": true,
       "installCommand": "npx skills add yetone/native-feel-skill -g"
+    },
+    {
+      "name": "ponytail",
+      "description": "Minimalist engineering guidance that pushes agents toward YAGNI, reuse, standard library and native platform features, smallest correct diffs, and over-engineering review/audit workflows.",
+      "repository": "https://github.com/DietrichGebert/ponytail",
+      "record": "third-party-skills/ponytail.md",
+      "entry": "skills/ponytail/SKILL.md",
+      "tags": [
+        "yagni",
+        "minimalism",
+        "code-review",
+        "over-engineering",
+        "standard-library",
+        "codex-plugin"
+      ],
+      "recommendedFor": [
+        "Keeping implementation scope minimal without removing required safety checks",
+        "Reviewing diffs for over-engineering, speculative abstractions, redundant dependencies, and avoidable boilerplate",
+        "Auditing a repository for code that can be deleted, simplified, or replaced with standard library or native platform features"
+      ],
+      "relationshipToFirstPartySkills": "Complements risk-oriented-code-review by focusing on over-engineering and unnecessary complexity rather than correctness, security, or compatibility risk; useful as a third-party candidate for skill-recommender.",
+      "installable": true,
+      "installCommand": "codex plugin marketplace add DietrichGebert/ponytail"
     }
   ]
 }
